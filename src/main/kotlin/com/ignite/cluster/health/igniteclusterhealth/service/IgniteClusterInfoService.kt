@@ -65,7 +65,7 @@ class IgniteClusterInfoService(
      * @return List of baseline nodes that are down
      */
     fun getDownBaselineNodes(): List<BaselineNode> {
-        val serverNodeConsistentIds = getNodes(NodeType.SERVER).map(BaselineNode::consistentId)
+        val serverNodeConsistentIds = getNodes(NodeType.SERVER).map(ClusterNode::consistentId)
         return getBaselineNodes()
             .filter { !serverNodeConsistentIds.contains(it.consistentId()) }
     }
